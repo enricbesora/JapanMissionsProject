@@ -31,25 +31,31 @@ export const MissionCard: React.FC<MissionCardProps> = ({
   };
 
   return (
-    <div className="border border-gray-200 rounded-lg overflow-hidden">
+    <div className="border-2 border-red-200 rounded-xl overflow-hidden shadow-sm bg-white">
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className={`w-full px-4 py-3 text-left flex items-center justify-between transition-colors ${
-          mission.completed ? 'bg-green-50 text-green-800' : 'bg-white hover:bg-gray-50'
+        className={`w-full px-4 py-4 text-left flex items-center justify-between transition-colors ${
+          mission.completed ? 'bg-green-50 text-green-800 border-b-2 border-green-200' : 'bg-white hover:bg-red-50 border-b-2 border-red-100'
         }`}
       >
         <div className="flex items-center space-x-3">
           {mission.completed && (
-            <Check size={20} className="text-green-600" />
+            <div className="bg-green-500 rounded-full p-1">
+              <Check size={16} className="text-white" />
+            </div>
           )}
-          <span className="font-medium">{mission.title}</span>
+          <span className="font-semibold">{mission.title}</span>
         </div>
-        {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+        <div className={`transition-transform duration-200 ${
+          mission.completed ? 'text-green-600' : 'text-red-500'
+        }`}>
+          {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+        </div>
       </button>
       
       {isExpanded && (
-        <div className="px-4 py-4 bg-gray-50 border-t border-gray-200">
-          <p className="text-gray-600 mb-4">{mission.description}</p>
+        <div className="px-4 py-4 bg-red-25 border-t-2 border-red-100">
+          <p className="text-gray-700 mb-4 leading-relaxed">{mission.description}</p>
           
           <PhotoUpload
             photo={mission.photo}
@@ -58,8 +64,8 @@ export const MissionCard: React.FC<MissionCardProps> = ({
           />
           
           {mission.completed && (
-            <div className="mt-3 text-sm text-green-600 font-medium">
-              ✅ Mission completed!
+            <div className="mt-3 text-sm text-green-600 font-bold bg-green-100 px-3 py-2 rounded-lg text-center">
+              🎉 Mission completed! Great job! 🎉
             </div>
           )}
         </div>

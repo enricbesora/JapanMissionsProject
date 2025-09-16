@@ -30,18 +30,21 @@ export const CityPopup: React.FC<CityPopupProps> = ({
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-lg w-full max-w-md max-h-[90vh] overflow-hidden">
+      <div className="bg-white rounded-xl w-full max-w-md max-h-[90vh] overflow-hidden shadow-2xl border border-red-200">
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-200">
+        <div className="flex items-center justify-between p-4 border-b border-red-200 bg-gradient-to-r from-red-500 to-pink-500 text-white">
           <div>
-            <h2 className="text-xl font-bold">{city.name}</h2>
-            <p className="text-sm text-gray-500">
+            <h2 className="text-xl font-bold flex items-center">
+              <span className="mr-2">🏮</span>
+              {city.name}
+            </h2>
+            <p className="text-sm opacity-90">
               {completedMissions} of {totalMissions} missions completed
             </p>
           </div>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            className="p-2 hover:bg-white hover:bg-opacity-20 rounded-lg transition-colors"
           >
             <X size={24} />
           </button>
@@ -49,16 +52,16 @@ export const CityPopup: React.FC<CityPopupProps> = ({
 
         {/* Progress Bar */}
         <div className="px-4 py-2">
-          <div className="w-full bg-gray-200 rounded-full h-2">
+          <div className="w-full bg-red-100 rounded-full h-3">
             <div
-              className="bg-blue-500 h-2 rounded-full transition-all duration-300"
+              className="bg-gradient-to-r from-red-500 to-pink-500 h-3 rounded-full transition-all duration-300"
               style={{ width: `${(completedMissions / totalMissions) * 100}%` }}
             />
           </div>
         </div>
 
         {/* Missions List */}
-        <div className="p-4 max-h-[60vh] overflow-y-auto space-y-3">
+        <div className="p-4 max-h-[60vh] overflow-y-auto space-y-3 bg-red-50">
           {city.missions.map((mission) => (
             <MissionCard
               key={mission.id}
