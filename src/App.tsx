@@ -68,7 +68,6 @@ function App() {
           <div className="text-center text-sm opacity-90 mb-3">
             Discover Japan through photo missions
           </div>
-          </h1>
           <div>
             <div className="flex justify-between text-sm mb-1">
               <span>Overall Progress</span>
