@@ -83,7 +83,7 @@ export const PhotoUpload: React.FC<PhotoUploadProps> = ({
       />
       
       {isLoading ? (
-        <div className="text-red-500 font-medium">📸 Procesando foto...</div>
+        <div className="text-red-500 font-medium">📸 Processant foto...</div>
       ) : (
         <div className="space-y-4">
           <div className="flex justify-center space-x-4">
@@ -92,7 +92,7 @@ export const PhotoUpload: React.FC<PhotoUploadProps> = ({
               className="flex flex-col items-center space-y-2 px-6 py-4 bg-gradient-to-r from-red-500 to-pink-500 text-white rounded-xl hover:from-red-600 hover:to-pink-600 transition-all duration-200 shadow-md hover:shadow-lg"
             >
               <Camera size={24} />
-              <span className="text-sm font-medium">Tomar Foto</span>
+              <span className="text-sm font-medium">Fer Foto</span>
             </button>
 
             <button
@@ -100,12 +100,12 @@ export const PhotoUpload: React.FC<PhotoUploadProps> = ({
               className="flex flex-col items-center space-y-2 px-6 py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-xl hover:from-green-600 hover:to-emerald-600 transition-all duration-200 shadow-md hover:shadow-lg"
             >
               <Upload size={24} />
-              <span className="text-sm font-medium">Subir</span>
+              <span className="text-sm font-medium">Pujar</span>
             </button>
           </div>
 
           <p className="text-sm text-gray-600 font-medium">
-            📱 Toma una foto o sube desde la galería
+            📱 Fes una foto o puja-la des de la galeria
           </p>
         </div>
       )}

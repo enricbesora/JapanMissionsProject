@@ -65,7 +65,7 @@ export const MissionCard: React.FC<MissionCardProps> = ({
           
           {mission.completed && (
             <div className="mt-3 text-sm text-green-600 font-bold bg-green-100 px-3 py-2 rounded-lg text-center">
-              🎉 ¡Misión completada! ¡Excelente trabajo! 🎉
+              🎉 Missió completada! Excel·lent treball! 🎉
             </div>
           )}
         </div>

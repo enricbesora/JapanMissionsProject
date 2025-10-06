@@ -61,16 +61,16 @@ function App() {
           <div className="flex items-center justify-center space-x-2 mb-3">
             <span className="text-2xl">🗾</span>
             <h1 className="text-2xl font-bold">
-              Misión Japón Quest
+              Missió Japó Quest
             </h1>
             <span className="text-2xl">🎌</span>
           </div>
           <div className="text-center text-sm opacity-90 mb-3">
-            Descubre Japón a través de misiones fotográficas
+            Descobreix el Japó a través de missions fotogràfiques
           </div>
           <div>
             <div className="flex justify-between text-sm mb-1">
-              <span>Progreso General</span>
+              <span>Progrés General</span>
               <span>{progress.completed} / {progress.total}</span>
             </div>
             <div className="w-full bg-white bg-opacity-30 rounded-full h-3">
@@ -81,7 +81,7 @@ function App() {
             </div>
             {isAllCompleted && (
               <div className="mt-2 text-center">
-                <span className="text-sm font-medium">🎉 ¡Todas las misiones completadas! 🎉</span>
+                <span className="text-sm font-medium">🎉 Totes les missions completades! 🎉</span>
               </div>
             )}
           </div>
@@ -93,7 +93,7 @@ function App() {
         {/* Japan Map Simulation */}
         <div className="bg-white rounded-xl shadow-lg p-6 mb-6 border border-red-100">
           <h2 className="text-lg font-semibold text-gray-800 mb-4 text-center">
-            Selecciona una Ciudad para Comenzar tu Aventura
+            Selecciona una Ciutat per Començar la teva Aventura
           </h2>
           
           {/* Simplified Map View */}
@@ -158,7 +158,7 @@ function App() {
                 </div>
                 <div className="text-sm font-medium text-gray-700 mt-1">{city.name}</div>
                 {isCompleted && (
-                  <div className="text-xs text-green-600 mt-1">✅ Completado</div>
+                  <div className="text-xs text-green-600 mt-1">✅ Completat</div>
                 )}
               </div>
             );
@@ -173,7 +173,7 @@ function App() {
               className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-4 rounded-xl font-medium hover:from-blue-600 hover:to-cyan-600 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
             >
               <Camera size={20} />
-              <span>Ver Collage de Fotos ({allPhotos.length} fotos)</span>
+              <span>Veure Col·latge de Fotos ({allPhotos.length} fotos)</span>
               <Sparkles size={16} />
             </button>
           </div>
@@ -183,13 +183,13 @@ function App() {
         <div className="bg-white rounded-xl p-5 shadow-md border border-red-100">
           <h3 className="font-bold text-gray-800 mb-3 flex items-center">
             <span className="mr-2">📋</span>
-            Cómo Jugar
+            Com Jugar
           </h3>
           <ul className="text-sm text-gray-700 space-y-2">
-            <li>• Toca un pin de ciudad para ver las misiones disponibles</li>
-            <li>• Completa misiones fotográficas para ganar progreso</li>
-            <li>• Usa tu cámara o sube fotos desde la galería</li>
-            <li>• ¡Completa todas las misiones para una sorpresa especial! 🎉</li>
+            <li>• Toca una xinxeta de ciutat per veure les missions disponibles</li>
+            <li>• Completa missions fotogràfiques per guanyar progrés</li>
+            <li>• Utilitza la teva càmera o puja fotos des de la galeria</li>
+            <li>• Completa totes les missions per una sorpresa especial! 🎉</li>
           </ul>
         </div>
       </main>
