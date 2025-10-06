@@ -13,6 +13,7 @@ export const PhotoUpload: React.FC<PhotoUploadProps> = ({
   onRemovePhoto
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const cameraInputRef = useRef<HTMLInputElement>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,6 +24,12 @@ export const PhotoUpload: React.FC<PhotoUploadProps> = ({
   };
 
   const handleCameraCapture = () => {
+    if (cameraInputRef.current) {
+      cameraInputRef.current.click();
+    }
+  };
+
+  const handleGalleryUpload = () => {
     if (fileInputRef.current) {
       fileInputRef.current.click();
     }
@@ -60,16 +67,23 @@ export const PhotoUpload: React.FC<PhotoUploadProps> = ({
   return (
     <div className="border-2 border-dashed border-red-300 rounded-xl p-6 text-center bg-red-25">
       <input
-        ref={fileInputRef}
+        ref={cameraInputRef}
         type="file"
         accept="image/*"
         capture="environment"
         onChange={handleFileSelect}
         className="hidden"
       />
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="image/*"
+        onChange={handleFileSelect}
+        className="hidden"
+      />
       
       {isLoading ? (
-        <div className="text-red-500 font-medium">📸 Processing photo...</div>
+        <div className="text-red-500 font-medium">📸 Procesando foto...</div>
       ) : (
         <div className="space-y-4">
           <div className="flex justify-center space-x-4">
@@ -78,20 +92,20 @@ export const PhotoUpload: React.FC<PhotoUploadProps> = ({
               className="flex flex-col items-center space-y-2 px-6 py-4 bg-gradient-to-r from-red-500 to-pink-500 text-white rounded-xl hover:from-red-600 hover:to-pink-600 transition-all duration-200 shadow-md hover:shadow-lg"
             >
               <Camera size={24} />
-              <span className="text-sm font-medium">Take Photo</span>
+              <span className="text-sm font-medium">Tomar Foto</span>
             </button>
-            
+
             <button
-              onClick={() => fileInputRef.current?.click()}
+              onClick={handleGalleryUpload}
               className="flex flex-col items-center space-y-2 px-6 py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-xl hover:from-green-600 hover:to-emerald-600 transition-all duration-200 shadow-md hover:shadow-lg"
             >
               <Upload size={24} />
-              <span className="text-sm font-medium">Upload</span>
+              <span className="text-sm font-medium">Subir</span>
             </button>
           </div>
-          
+
           <p className="text-sm text-gray-600 font-medium">
-            📱 Take a photo or upload from gallery
+            📱 Toma una foto o sube desde la galería
           </p>
         </div>
       )}

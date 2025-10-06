@@ -39,9 +39,9 @@ export const CompletionAnimation: React.FC<CompletionAnimationProps> = ({
           <h1 className="text-4xl font-bold mb-4 animate-fade-in">
             おめでとうございます！
           </h1>
-          <h2 className="text-2xl mb-2">Congratulations!</h2>
+          <h2 className="text-2xl mb-2">¡Felicitaciones!</h2>
           <p className="text-lg opacity-90">
-            You've completed all missions in Japan! 🗾
+            ¡Has completado todas las misiones en Japón! 🗾
           </p>
           
           <div className="mt-8 flex justify-center space-x-2">
@@ -64,8 +64,8 @@ export const CompletionAnimation: React.FC<CompletionAnimationProps> = ({
         <div className="bg-white rounded-xl w-full max-w-md max-h-[90vh] overflow-hidden">
           <div className="bg-gradient-to-r from-red-500 to-pink-500 text-white p-4 text-center">
             <Camera className="mx-auto mb-2" size={32} />
-            <h2 className="text-xl font-bold">Your Japan Journey</h2>
-            <p className="text-sm opacity-90">Mission Photos Collage</p>
+            <h2 className="text-xl font-bold">Tu Viaje por Japón</h2>
+            <p className="text-sm opacity-90">Collage de Fotos de Misiones</p>
           </div>
           
           <div className="p-4 max-h-[60vh] overflow-y-auto">
@@ -94,7 +94,7 @@ export const CompletionAnimation: React.FC<CompletionAnimationProps> = ({
               onClick={onClose}
               className="w-full bg-gradient-to-r from-red-500 to-pink-500 text-white py-3 rounded-lg font-medium hover:from-red-600 hover:to-pink-600 transition-all duration-200"
             >
-              Continue Exploring Japan 🗾
+              Continuar Explorando Japón 🗾
             </button>
           </div>
         </div>

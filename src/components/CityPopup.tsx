@@ -39,7 +39,7 @@ export const CityPopup: React.FC<CityPopupProps> = ({
               {city.name}
             </h2>
             <p className="text-sm opacity-90">
-              {completedMissions} of {totalMissions} missions completed
+              {completedMissions} de {totalMissions} misiones completadas
             </p>
           </div>
           <button

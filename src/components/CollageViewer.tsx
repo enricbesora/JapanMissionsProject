@@ -40,9 +40,9 @@ export const CollageViewer: React.FC<CollageViewerProps> = ({
             <div className="flex items-center space-x-2">
               <Camera size={24} />
               <div>
-                <h2 className="text-lg font-bold">Japan Journey Collage</h2>
+                <h2 className="text-lg font-bold">Collage del Viaje por Japón</h2>
                 <p className="text-sm opacity-90">
-                  {photos.length} memories captured
+                  {photos.length} recuerdos capturados
                 </p>
               </div>
             </div>
@@ -91,16 +91,16 @@ export const CollageViewer: React.FC<CollageViewerProps> = ({
         <div className="p-4 border-t border-gray-200 space-y-2">
           <button
             // de momento dejamos solo en pantalla, más adelante podemos enganchar el downloadCollage con html2canvas
-            onClick={() => alert("Download collage coming soon!")}
+            onClick={() => alert("¡Descarga de collage próximamente!")}
             className="w-full bg-gradient-to-r from-green-500 to-teal-500 text-white py-3 rounded-lg font-medium hover:from-green-600 hover:to-teal-600 transition-all duration-200 flex items-center justify-center space-x-2"
           >
-            <span>Download Collage</span>
+            <span>Descargar Collage</span>
           </button>
           <button
             onClick={onClose}
             className="w-full bg-gray-100 text-gray-700 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors"
           >
-            Close
+            Cerrar
           </button>
         </div>
       </div>

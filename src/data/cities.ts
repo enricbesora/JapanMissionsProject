@@ -9,22 +9,22 @@ export const cities: City[] = [
     missions: [
       {
         id: 'tokyo-tower',
-        title: 'Tokyo Tower Adventure',
-        description: 'Take a photo with the iconic Tokyo Tower in the background. Try to capture the full tower in your shot!',
+        title: 'Aventura en Tokyo Tower',
+        description: '¡Toma una foto con la icónica Torre de Tokio de fondo. Intenta capturar la torre completa en tu toma!',
         location: 'Tokyo',
         completed: false
       },
       {
         id: 'shibuya-crossing',
-        title: 'Shibuya Crossing Experience',
-        description: 'Capture the famous Shibuya Crossing during rush hour. Show the bustling energy of this iconic intersection!',
+        title: 'Experiencia en Shibuya Crossing',
+        description: '¡Captura el famoso cruce de Shibuya durante la hora pico. Muestra la bulliciosa energía de esta intersección icónica!',
         location: 'Tokyo',
         completed: false
       },
       {
         id: 'senso-ji',
-        title: 'Senso-ji Temple Visit',
-        description: 'Take a respectful photo at the entrance of Senso-ji Temple. Include the traditional architecture in your shot.',
+        title: 'Visita al Templo Senso-ji',
+        description: 'Toma una foto respetuosa en la entrada del Templo Senso-ji. Incluye la arquitectura tradicional en tu toma.',
         location: 'Tokyo',
         completed: false
       }
@@ -38,22 +38,22 @@ export const cities: City[] = [
     missions: [
       {
         id: 'deer-park',
-        title: 'Deer Park Encounter',
-        description: 'Take a photo with the friendly deer in Nara Park. Make sure to keep a respectful distance!',
+        title: 'Encuentro en el Parque de los Ciervos',
+        description: '¡Toma una foto con los amigables ciervos del Parque de Nara. Asegúrate de mantener una distancia respetuosa!',
         location: 'Nara',
         completed: false
       },
       {
         id: 'todai-ji',
-        title: 'Todai-ji Temple Giant Buddha',
-        description: 'Capture the magnificent Great Buddha statue at Todai-ji Temple. Show the impressive scale of this ancient wonder.',
+        title: 'Gran Buda del Templo Todai-ji',
+        description: 'Captura la magnífica estatua del Gran Buda en el Templo Todai-ji. Muestra la impresionante escala de esta maravilla antigua.',
         location: 'Nara',
         completed: false
       },
       {
         id: 'kasuga-taisha',
-        title: 'Kasuga Taisha Lanterns',
-        description: 'Photograph the beautiful stone lanterns lining the path to Kasuga Taisha Shrine.',
+        title: 'Linternas de Kasuga Taisha',
+        description: 'Fotografía las hermosas linternas de piedra que bordean el camino hacia el Santuario Kasuga Taisha.',
         location: 'Nara',
         completed: false
       }
@@ -67,15 +67,15 @@ export const cities: City[] = [
     missions: [
       {
         id: 'osaka-castle',
-        title: 'Osaka Castle Glory',
-        description: 'Take a majestic photo of Osaka Castle. Try to capture it during golden hour for the best lighting!',
+        title: 'Gloria del Castillo de Osaka',
+        description: '¡Toma una foto majestuosa del Castillo de Osaka. Intenta capturarlo durante la hora dorada para la mejor iluminación!',
         location: 'Osaka',
         completed: false
       },
       {
         id: 'dotonbori',
-        title: 'Dotonbori Night Lights',
-        description: 'Capture the vibrant neon signs and bustling atmosphere of Dotonbori district at night.',
+        title: 'Luces Nocturnas de Dotonbori',
+        description: 'Captura los vibrantes letreros de neón y la animada atmósfera del distrito de Dotonbori por la noche.',
         location: 'Osaka',
         completed: false
       }
