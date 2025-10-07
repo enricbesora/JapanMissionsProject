@@ -18,15 +18,21 @@ export const CityPopup: React.FC<CityPopupProps> = ({
     const updatedMissions = city.missions.map(mission =>
       mission.id === updatedMission.id ? updatedMission : mission
     );
-    
+
     onUpdateCity({
       ...city,
       missions: updatedMissions
     });
   };
 
-  const completedMissions = city.missions.filter(m => m.completed).length;
-  const totalMissions = city.missions.length;
+  const regularMissions = city.missions.filter(m => !m.isSecret);
+  const secretMissions = city.missions.filter(m => m.isSecret);
+  const regularCompleted = regularMissions.filter(m => m.completed).length;
+  const allRegularComplete = regularCompleted === regularMissions.length;
+
+  const visibleMissions = allRegularComplete ? city.missions : regularMissions;
+  const completedMissions = visibleMissions.filter(m => m.completed).length;
+  const totalMissions = visibleMissions.length;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
@@ -62,7 +68,14 @@ export const CityPopup: React.FC<CityPopupProps> = ({
 
         {/* Missions List */}
         <div className="p-4 max-h-[60vh] overflow-y-auto space-y-3 bg-red-50">
-          {city.missions.map((mission) => (
+          {allRegularComplete && secretMissions.length > 0 && (
+            <div className="bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 text-white p-4 rounded-xl text-center font-bold shadow-lg animate-bounce-in mb-4">
+              <div className="text-2xl mb-2">🎊</div>
+              <div>Missions Secretes Desbloquejades!</div>
+              <div className="text-sm font-normal mt-1 opacity-90">Has completat totes les missions regulars</div>
+            </div>
+          )}
+          {visibleMissions.map((mission) => (
             <MissionCard
               key={mission.id}
               mission={mission}

@@ -5,6 +5,7 @@ export interface Mission {
   location: string;
   photo?: string;
   completed: boolean;
+  isSecret?: boolean;
 }
 
 export interface City {

@@ -85,21 +85,21 @@ function App() {
   const isAllCompleted = progress.completed === progress.total && progress.total > 0;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 via-pink-50 to-orange-50 flex flex-col">
+    <div className="h-screen bg-gradient-to-br from-cyan-400 to-blue-500 flex flex-col overflow-hidden">
       {/* Header */}
-      <header className="bg-gradient-to-r from-red-500 via-pink-500 to-orange-400 text-white shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 py-3">
+      <header className="bg-gradient-to-r from-red-500 via-pink-500 to-orange-400 text-white shadow-lg z-30">
+        <div className="px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <span className="text-2xl">🗾</span>
-              <h1 className="text-2xl font-bold">Missió Japó Quest</h1>
-              <span className="text-2xl">🎌</span>
+              <span className="text-xl sm:text-2xl">🗾</span>
+              <h1 className="text-lg sm:text-2xl font-bold">Missió Japó Quest</h1>
+              <span className="text-xl sm:text-2xl">🎌</span>
             </div>
             <div className="text-right">
-              <div className="text-sm opacity-90 mb-1">
-                Progrés: {progress.completed} / {progress.total}
+              <div className="text-xs sm:text-sm opacity-90 mb-1">
+                {progress.completed} / {progress.total}
               </div>
-              <div className="w-48 bg-white bg-opacity-30 rounded-full h-2">
+              <div className="w-20 sm:w-32 bg-white bg-opacity-30 rounded-full h-2">
                 <div
                   className="bg-white h-2 rounded-full transition-all duration-500"
                   style={{ width: `${(progress.completed / progress.total) * 100}%` }}
@@ -111,159 +111,115 @@ function App() {
       </header>
 
       {/* Main Content - Map Focus */}
-      <main className="flex-1 flex flex-col lg:flex-row overflow-hidden">
-        {/* Interactive Map */}
-        <div className="flex-1 relative bg-gradient-to-br from-blue-50 to-green-50">
-          <div className="absolute top-4 left-4 z-20 bg-white rounded-lg shadow-lg p-2 space-y-2">
-            <button
-              onClick={handleZoomIn}
-              className="block p-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
-              title="Zoom In"
-            >
-              <ZoomIn size={20} />
-            </button>
-            <button
-              onClick={handleZoomOut}
-              className="block p-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
-              title="Zoom Out"
-            >
-              <ZoomOut size={20} />
-            </button>
-          </div>
-
-          <div
-            ref={mapRef}
-            className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing"
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
+      <main className="flex-1 relative overflow-hidden">
+        {/* Zoom Controls */}
+        <div className="absolute top-4 right-4 z-20 bg-white rounded-xl shadow-lg p-2 space-y-2">
+          <button
+            onClick={handleZoomIn}
+            className="block p-3 bg-gradient-to-r from-red-500 to-pink-500 text-white rounded-lg hover:from-red-600 hover:to-pink-600 transition-all active:scale-95 shadow-md"
+            title="Zoom In"
           >
-            <div
-              className="relative w-full h-full min-h-screen"
-              style={{
-                backgroundImage: 'url(https://images.pexels.com/photos/5650026/pexels-photo-5650026.jpeg?auto=compress&cs=tinysrgb&w=1920)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                transform: `scale(${zoom}) translate(${position.x / zoom}px, ${position.y / zoom}px)`,
-                transition: isDragging ? 'none' : 'transform 0.2s ease-out'
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-50/30 to-transparent" />
+            <ZoomIn size={24} />
+          </button>
+          <button
+            onClick={handleZoomOut}
+            className="block p-3 bg-gradient-to-r from-red-500 to-pink-500 text-white rounded-lg hover:from-red-600 hover:to-pink-600 transition-all active:scale-95 shadow-md"
+            title="Zoom Out"
+          >
+            <ZoomOut size={24} />
+          </button>
+        </div>
 
-              {cities.map((city) => {
-                const completedMissions = city.missions.filter(m => m.completed).length;
-                const totalMissions = city.missions.length;
-                const isCompleted = completedMissions === totalMissions;
+        {/* Collage Button */}
+        {allPhotos.length > 0 && (
+          <button
+            onClick={() => setShowCollageViewer(true)}
+            className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-6 py-3 rounded-full font-medium hover:from-blue-600 hover:to-cyan-600 transition-all flex items-center space-x-2 shadow-xl active:scale-95"
+          >
+            <Camera size={20} />
+            <span className="hidden sm:inline">Col·latge</span>
+            <span className="font-bold">({allPhotos.length})</span>
+          </button>
+        )}
 
-                return (
-                  <button
-                    key={city.id}
-                    onClick={() => setSelectedCity(city)}
-                    className={`absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-200 hover:scale-125 z-10 ${
-                      isCompleted ? 'text-green-600' : 'text-red-600'
-                    }`}
-                    style={{ left: `${city.x}%`, top: `${city.y}%` }}
-                  >
-                    <div className="flex flex-col items-center">
-                      <div className={`p-4 rounded-full shadow-2xl border-3 border-white ${
-                        isCompleted ? 'bg-gradient-to-r from-green-500 to-emerald-500' : 'bg-gradient-to-r from-red-500 to-pink-500'
-                      } text-white hover:shadow-2xl transition-all hover:scale-110`}>
-                        <MapPin size={28} />
+        {/* Interactive Map */}
+        <div
+          ref={mapRef}
+          className="w-full h-full overflow-hidden touch-pan-x touch-pan-y"
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+          onTouchStart={(e) => {
+            const touch = e.touches[0];
+            setIsDragging(true);
+            setDragStart({ x: touch.clientX - position.x, y: touch.clientY - position.y });
+          }}
+          onTouchMove={(e) => {
+            if (isDragging && e.touches[0]) {
+              const touch = e.touches[0];
+              setPosition({
+                x: touch.clientX - dragStart.x,
+                y: touch.clientY - dragStart.y
+              });
+            }
+          }}
+          onTouchEnd={() => setIsDragging(false)}
+        >
+          <div
+            className="relative w-full h-full min-h-screen"
+            style={{
+              backgroundImage: 'url(/image.png)',
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              transform: `scale(${zoom}) translate(${position.x / zoom}px, ${position.y / zoom}px)`,
+              transition: isDragging ? 'none' : 'transform 0.2s ease-out'
+            }}
+          >
+            {cities.map((city) => {
+              const regularMissions = city.missions.filter(m => !m.isSecret);
+              const secretMissions = city.missions.filter(m => m.isSecret);
+              const regularCompleted = regularMissions.filter(m => m.completed).length;
+              const allRegularComplete = regularCompleted === regularMissions.length;
+
+              const visibleMissions = allRegularComplete ? city.missions : regularMissions;
+              const completedMissions = visibleMissions.filter(m => m.completed).length;
+              const totalMissions = visibleMissions.length;
+              const isCompleted = completedMissions === totalMissions;
+              const hasSecretUnlocked = allRegularComplete && secretMissions.length > 0;
+
+              return (
+                <button
+                  key={city.id}
+                  onClick={() => setSelectedCity(city)}
+                  className={`absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 hover:scale-110 active:scale-95 z-10`}
+                  style={{ left: `${city.x}%`, top: `${city.y}%` }}
+                >
+                  <div className="flex flex-col items-center relative">
+                    {hasSecretUnlocked && !isCompleted && (
+                      <div className="absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold animate-bounce shadow-lg z-10">
+                        !
                       </div>
-                      <span className="mt-2 text-sm font-bold bg-white px-3 py-1.5 rounded-full shadow-lg border-2 border-red-200">
-                        {city.name}
-                      </span>
-                      <span className="text-sm text-gray-700 font-medium bg-white/80 px-2 py-0.5 rounded-full mt-1">
-                        {completedMissions}/{totalMissions}
-                      </span>
+                    )}
+                    <div className={`p-3 sm:p-4 rounded-full shadow-xl border-2 border-white ${
+                      isCompleted ? 'bg-gradient-to-r from-green-500 to-emerald-500 animate-pulse' : hasSecretUnlocked ? 'bg-gradient-to-r from-yellow-500 to-orange-500' : 'bg-gradient-to-r from-red-500 to-pink-500'
+                    } text-white transition-all`}>
+                      <MapPin size={20} className="sm:w-7 sm:h-7" />
                     </div>
-                  </button>
-                );
-              })}
-            </div>
+                    <span className="mt-1 text-xs sm:text-sm font-bold bg-white px-2 sm:px-3 py-1 rounded-full shadow-lg border-2 border-red-200">
+                      {city.name}
+                    </span>
+                    <span className="text-xs text-gray-700 font-medium bg-white/90 px-2 py-0.5 rounded-full mt-1">
+                      {completedMissions}/{totalMissions}
+                    </span>
+                  </div>
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        {/* Sidebar */}
-        <aside className="w-full lg:w-80 bg-white border-t lg:border-t-0 lg:border-l border-red-200 shadow-lg overflow-y-auto">
-          <div className="p-4 space-y-4">
-            <div>
-              <h2 className="text-xl font-bold text-gray-800 mb-2 flex items-center">
-                <span className="mr-2">🎯</span>
-                Ciutats
-              </h2>
-              <p className="text-sm text-gray-600 mb-4">
-                Selecciona una ciutat al mapa per veure les missions
-              </p>
-
-              {isAllCompleted && (
-                <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white p-3 rounded-xl mb-4 text-center font-semibold">
-                  🎉 Totes les missions completades! 🎉
-                </div>
-              )}
-
-              <div className="space-y-2">
-                {cities.map((city) => {
-                  const completed = city.missions.filter(m => m.completed).length;
-                  const total = city.missions.length;
-                  const isCompleted = completed === total;
-
-                  return (
-                    <button
-                      key={city.id}
-                      onClick={() => setSelectedCity(city)}
-                      className={`w-full bg-white rounded-lg p-3 text-left shadow-md cursor-pointer hover:shadow-lg transition-all duration-200 border-2 ${
-                        isCompleted ? 'border-green-300 bg-green-50' : 'border-red-200'
-                      } hover:scale-102`}
-                    >
-                      <div className="flex justify-between items-center">
-                        <div className="font-medium text-gray-800">{city.name}</div>
-                        <div className={`text-sm font-bold ${
-                          isCompleted ? 'text-green-600' : 'text-red-600'
-                        }`}>
-                          {completed}/{total}
-                        </div>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-1.5 mt-2">
-                        <div
-                          className={`h-1.5 rounded-full transition-all ${
-                            isCompleted ? 'bg-gradient-to-r from-green-500 to-emerald-500' : 'bg-gradient-to-r from-red-500 to-pink-500'
-                          }`}
-                          style={{ width: `${(completed / total) * 100}%` }}
-                        />
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {allPhotos.length > 0 && (
-              <button
-                onClick={() => setShowCollageViewer(true)}
-                className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-3 rounded-xl font-medium hover:from-blue-600 hover:to-cyan-600 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
-              >
-                <Camera size={20} />
-                <span>Col·latge ({allPhotos.length})</span>
-                <Sparkles size={16} />
-              </button>
-            )}
-
-            <div className="bg-red-50 rounded-xl p-4 border border-red-200">
-              <h3 className="font-bold text-gray-800 mb-3 flex items-center">
-                <span className="mr-2">📋</span>
-                Com Jugar
-              </h3>
-              <ul className="text-sm text-gray-700 space-y-2">
-                <li>• Utilitza els controls de zoom i arrossega el mapa</li>
-                <li>• Clica les xinxetes per veure missions</li>
-                <li>• Completa missions pujant fotos</li>
-                <li>• Desbloqueja totes les ciutats del Japó!</li>
-              </ul>
-            </div>
-          </div>
-        </aside>
       </main>
 
       {/* City Popup */}
