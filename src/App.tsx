@@ -17,6 +17,8 @@ function App() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const [initialPinchDistance, setInitialPinchDistance] = useState<number | null>(null);
+  const [initialZoom, setInitialZoom] = useState(1);
   const mapRef = useRef<HTMLDivElement>(null);
 
   const handleUpdateCity = (updatedCity: City) => {
@@ -80,12 +82,53 @@ function App() {
     setIsDragging(false);
   };
 
+  const getDistance = (touch1: React.Touch, touch2: React.Touch) => {
+    const dx = touch1.clientX - touch2.clientX;
+    const dy = touch1.clientY - touch2.clientY;
+    return Math.sqrt(dx * dx + dy * dy);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (e.touches.length === 2) {
+      e.preventDefault();
+      const distance = getDistance(e.touches[0], e.touches[1]);
+      setInitialPinchDistance(distance);
+      setInitialZoom(zoom);
+      setIsDragging(false);
+    } else if (e.touches.length === 1) {
+      const touch = e.touches[0];
+      setIsDragging(true);
+      setDragStart({ x: touch.clientX - position.x, y: touch.clientY - position.y });
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (e.touches.length === 2 && initialPinchDistance !== null) {
+      e.preventDefault();
+      const distance = getDistance(e.touches[0], e.touches[1]);
+      const scale = distance / initialPinchDistance;
+      const newZoom = Math.max(0.5, Math.min(3, initialZoom * scale));
+      setZoom(newZoom);
+    } else if (isDragging && e.touches.length === 1) {
+      const touch = e.touches[0];
+      setPosition({
+        x: touch.clientX - dragStart.x,
+        y: touch.clientY - dragStart.y
+      });
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+    setInitialPinchDistance(null);
+  };
+
   const progress = getTotalProgress();
   const allPhotos = getAllPhotos();
   const isAllCompleted = progress.completed === progress.total && progress.total > 0;
 
   return (
-    <div className="h-screen bg-gradient-to-br from-cyan-400 to-blue-500 flex flex-col overflow-hidden">
+    <div className="h-screen flex flex-col overflow-hidden" style={{ backgroundColor: '#1ba1b8' }}>
       {/* Header */}
       <header className="bg-gradient-to-r from-red-500 via-pink-500 to-orange-400 text-white shadow-lg z-30">
         <div className="px-4 py-3">
@@ -150,21 +193,9 @@ function App() {
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
-          onTouchStart={(e) => {
-            const touch = e.touches[0];
-            setIsDragging(true);
-            setDragStart({ x: touch.clientX - position.x, y: touch.clientY - position.y });
-          }}
-          onTouchMove={(e) => {
-            if (isDragging && e.touches[0]) {
-              const touch = e.touches[0];
-              setPosition({
-                x: touch.clientX - dragStart.x,
-                y: touch.clientY - dragStart.y
-              });
-            }
-          }}
-          onTouchEnd={() => setIsDragging(false)}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
           <div
             className="relative w-full h-full min-h-screen"

@@ -2,97 +2,97 @@ import { City } from '../types/Mission';
 
 export const cities: City[] = [
   {
-    id: 'sapporo',
-    name: 'Sapporo',
-    x: 85,
-    y: 8,
-    missions: [
-      {
-        id: 'sapporo-snow-festival',
-        title: 'Festival de Neu de Sapporo',
-        description: 'Captura les impressionants escultures de gel i neu. Mostra la creativitat artística dels mestres escultors!',
-        location: 'Sapporo',
-        completed: false
-      },
-      {
-        id: 'odori-park',
-        title: 'Parc Odori',
-        description: 'Fotografa aquest precís parc que divideix la ciutat. Ideal en qualsevol estació de l\'any!',
-        location: 'Sapporo',
-        completed: false
-      },
-      {
-        id: 'sapporo-secret',
-        title: '❄️ Misió Secreta: Ramen de Mitjanit',
-        description: 'Troba un autèntic restaurant de ramen obert tard a la nit i captura el teu bol de ramen miso!',
-        location: 'Sapporo',
-        completed: false,
-        isSecret: true
-      }
-    ]
-  },
-  {
     id: 'tokyo',
-    name: 'Tokyo',
+    name: 'Tòkio',
     x: 75,
     y: 30,
     missions: [
       {
         id: 'tokyo-tower',
         title: 'Aventura a la Tokyo Tower',
-        description: 'Fes una foto amb la icònica Torre de Toquio de fons. Intenta capturar la torre completa en la teva imatge!',
-        location: 'Tokyo',
+        description: 'Fes una foto amb la icònica Torre de Tòkio de fons. Intenta capturar la torre completa en la teva imatge!',
+        location: 'Tòkio',
         completed: false
       },
       {
         id: 'shibuya-crossing',
         title: 'Experiència al Shibuya Crossing',
         description: 'Captura el famós encreuament de Shibuya durant l\'hora punta. Mostra l\'energia bulliciosa d\'aquesta intersecció icònica!',
-        location: 'Tokyo',
+        location: 'Tòkio',
         completed: false
       },
       {
         id: 'senso-ji',
         title: 'Visita al Temple Senso-ji',
         description: 'Fes una foto respectuosa a l\'entrada del Temple Senso-ji. Inclou l\'arquitectura tradicional en la teva imatge.',
-        location: 'Tokyo',
+        location: 'Tòkio',
         completed: false
       },
       {
         id: 'tokyo-secret',
         title: '🗼 Misió Secreta: Gat de la Sort',
         description: 'Troba una botiga amb un maneki-neko (gat de la sort) i fes-li una foto mentre et fa un gest d\'invitació!',
-        location: 'Tokyo',
+        location: 'Tòkio',
         completed: false,
         isSecret: true
       }
     ]
   },
   {
-    id: 'nikko',
-    name: 'Nikko',
+    id: 'hakone',
+    name: 'Hakone',
     x: 78,
     y: 28,
     missions: [
       {
-        id: 'toshogu-shrine',
-        title: 'Santuari Toshogu',
-        description: 'Fotografa els ornaments daurats i les talles detallades d\'aquest santuari patrimoni mundial.',
-        location: 'Nikko',
+        id: 'hakone-shrine',
+        title: 'Santuari de Hakone',
+        description: 'Fotografa la icònica porta torii vermella al llac Ashi amb el Mont Fuji de fons si tens sort!',
+        location: 'Hakone',
         completed: false
       },
       {
-        id: 'kegon-falls',
-        title: 'Cascades Kegon',
-        description: 'Captura la majestuosa caiguda d\'aigua de 97 metres d\'altura, especialment bella a la tardor.',
-        location: 'Nikko',
+        id: 'owakudani',
+        title: 'Vall d\'Owakudani',
+        description: 'Captura els vapors sulfurosos d\'aquesta vall volcànica activa. No t\'oblidis dels ous negres!',
+        location: 'Hakone',
         completed: false
       },
       {
-        id: 'nikko-secret',
-        title: '🍁 Misió Secreta: Micos Sense Mal',
-        description: 'Troba l\'escultura dels tres micos savis i fes una foto imitant la seva postura!',
-        location: 'Nikko',
+        id: 'hakone-secret',
+        title: '🥚 Misió Secreta: Ou Negre de Llarga Vida',
+        description: 'Compra i fotografa un ou negre (kuro-tamago) cuit a les aigües volcàniques. Es diu que t\'allargarà la vida 7 anys!',
+        location: 'Hakone',
+        completed: false,
+        isSecret: true
+      }
+    ]
+  },
+  {
+    id: 'takayama',
+    name: 'Takayama',
+    x: 65,
+    y: 40,
+    missions: [
+      {
+        id: 'takayama-old-town',
+        title: 'Barri Antic de Takayama',
+        description: 'Fotografa els carrers tradicionals de l\'època Edo amb les cases de fusta de comerciants preservades perfectament.',
+        location: 'Takayama',
+        completed: false
+      },
+      {
+        id: 'morning-market',
+        title: 'Mercat Matinal de Miyagawa',
+        description: 'Captura l\'atmosfera del mercat matinal amb els venedors locals i els seus products frescos.',
+        location: 'Takayama',
+        completed: false
+      },
+      {
+        id: 'takayama-secret',
+        title: '🍶 Misió Secreta: Sake Artesanal',
+        description: 'Visita una destil·leria de sake tradicional i fes una foto dels barrilets de fusta de cedre!',
+        location: 'Takayama',
         completed: false,
         isSecret: true
       }
@@ -100,7 +100,7 @@ export const cities: City[] = [
   },
   {
     id: 'kyoto',
-    name: 'Kyoto',
+    name: 'Kioto',
     x: 55,
     y: 48,
     missions: [
@@ -108,28 +108,28 @@ export const cities: City[] = [
         id: 'fushimi-inari',
         title: 'Fushimi Inari Taisha',
         description: 'Fotografa els milers de torii vermells que formen túnels màgics a la muntanya.',
-        location: 'Kyoto',
+        location: 'Kioto',
         completed: false
       },
       {
         id: 'kinkakuji',
         title: 'Pavelló Daurat',
         description: 'Captura el resplandent Temple Kinkaku-ji reflectit en l\'aigua del llac que l\'envolta.',
-        location: 'Kyoto',
+        location: 'Kioto',
         completed: false
       },
       {
         id: 'arashiyama-bamboo',
         title: 'Bosc de Bambú d\'Arashiyama',
         description: 'Fotografa els alts bambus que creen un passadís verd i tranquil. Intenta capturar la llum filtrant-se!',
-        location: 'Kyoto',
+        location: 'Kioto',
         completed: false
       },
       {
         id: 'kyoto-secret',
         title: '🌸 Misió Secreta: Geisha Misteriosa',
         description: 'Al districte de Gion, captura l\'essència tradicional amb una foto d\'un carrer amb cases de te.',
-        location: 'Kyoto',
+        location: 'Kioto',
         completed: false,
         isSecret: true
       }
@@ -139,7 +139,7 @@ export const cities: City[] = [
     id: 'nara',
     name: 'Nara',
     x: 58,
-    y: 50,
+    y: 52,
     missions: [
       {
         id: 'deer-park',
@@ -169,7 +169,7 @@ export const cities: City[] = [
     id: 'osaka',
     name: 'Osaka',
     x: 52,
-    y: 52,
+    y: 54,
     missions: [
       {
         id: 'osaka-castle',
@@ -196,120 +196,37 @@ export const cities: City[] = [
     ]
   },
   {
-    id: 'hiroshima',
-    name: 'Hiroshima',
-    x: 42,
-    y: 55,
+    id: 'universal-studios',
+    name: 'Universal Studios',
+    x: 51,
+    y: 53,
     missions: [
       {
-        id: 'peace-memorial',
-        title: 'Memorial de la Pau',
-        description: 'Fes una foto respectuosa del Domo de la Bomba Atòmica, símbol de pau mundial.',
-        location: 'Hiroshima',
+        id: 'hogwarts-castle',
+        title: 'Castell de Hogwarts',
+        description: 'Fotografa l\'impressionant Castell de Hogwarts a The Wizarding World of Harry Potter amb tot el seu detall màgic!',
+        location: 'Universal Studios',
         completed: false
       },
       {
-        id: 'miyajima-torii',
-        title: 'Torii Flotant de Miyajima',
-        description: 'Captura la icònica porta torii vermella que sembla flotar sobre l\'aigua durant la marea alta.',
-        location: 'Hiroshima',
+        id: 'mario-world',
+        title: 'Super Nintendo World',
+        description: 'Captura l\'acolorit món de Super Mario amb el Castell de Peach i els blocs característics del joc!',
+        location: 'Universal Studios',
         completed: false
       },
       {
-        id: 'hiroshima-secret',
-        title: '🕊️ Misió Secreta: Origami de la Pau',
-        description: 'Fes un origami de grua i fotografa\'l en un lloc significatiu de Hiroshima.',
-        location: 'Hiroshima',
-        completed: false,
-        isSecret: true
-      }
-    ]
-  },
-  {
-    id: 'fukuoka',
-    name: 'Fukuoka',
-    x: 35,
-    y: 65,
-    missions: [
-      {
-        id: 'fukuoka-castle',
-        title: 'Castell de Fukuoka',
-        description: 'Fotografa les ruïnes del castell envoltat de cirerers, especialment bells durant el sakura.',
-        location: 'Fukuoka',
+        id: 'minion-park',
+        title: 'Parc dels Minions',
+        description: 'Fes una foto divertida amb les figures gegants dels Minions i l\'atmosfera festiva de la zona!',
+        location: 'Universal Studios',
         completed: false
       },
       {
-        id: 'yatai-stalls',
-        title: 'Parades Yatai',
-        description: 'Captura l\'ambient dels carretons de menjar nocturns típics de Fukuoka. Mostra la cultura gastronòmica local!',
-        location: 'Fukuoka',
-        completed: false
-      },
-      {
-        id: 'fukuoka-secret',
-        title: '🍜 Misió Secreta: Hakata Ramen',
-        description: 'Troba un restaurant de Hakata ramen i captura el moment perfecte abans del primer mos!',
-        location: 'Fukuoka',
-        completed: false,
-        isSecret: true
-      }
-    ]
-  },
-  {
-    id: 'nagasaki',
-    name: 'Nagasaki',
-    x: 30,
-    y: 70,
-    missions: [
-      {
-        id: 'glover-garden',
-        title: 'Jardí Glover',
-        description: 'Fotografa les cases colonials occidentals amb vistes a la badia de Nagasaki.',
-        location: 'Nagasaki',
-        completed: false
-      },
-      {
-        id: 'peace-park',
-        title: 'Parc de la Pau',
-        description: 'Captura l\'estàtua de la pau i els monuments commemoratius amb respecte i dignitat.',
-        location: 'Nagasaki',
-        completed: false
-      },
-      {
-        id: 'nagasaki-secret',
-        title: '🌉 Misió Secreta: Pont dels Espectacles',
-        description: 'Fotografa els carrers inclinats de Nagasaki amb vista al port durant la posta de sol.',
-        location: 'Nagasaki',
-        completed: false,
-        isSecret: true
-      }
-    ]
-  },
-  {
-    id: 'nagoya',
-    name: 'Nagoya',
-    x: 65,
-    y: 40,
-    missions: [
-      {
-        id: 'nagoya-castle',
-        title: 'Castell de Nagoya',
-        description: 'Fes una foto del castell amb els seus famosos dofins daurats (kinshachi) al sostre.',
-        location: 'Nagoya',
-        completed: false
-      },
-      {
-        id: 'atsuta-shrine',
-        title: 'Santuari Atsuta',
-        description: 'Captura l\'atmosfera espiritual d\'un dels santuaris xintoistes més importants del Japó.',
-        location: 'Nagoya',
-        completed: false
-      },
-      {
-        id: 'nagoya-secret',
-        title: '🏯 Misió Secreta: Dofí Daurat',
-        description: 'Aconsegueix una foto dels famosos kinshachi (dofins daurats) des d\'un angle únic!',
-        location: 'Nagoya',
+        id: 'universal-secret',
+        title: '⭐ Misió Secreta: Cervesa de Mantega',
+        description: 'Compra i fotografa una cervesa de mantega (Butterbeer) al món de Harry Potter. Deliciosa!',
+        location: 'Universal Studios',
         completed: false,
         isSecret: true
       }
