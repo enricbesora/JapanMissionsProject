@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { MapPin, Camera, Sparkles, ZoomIn, ZoomOut } from 'lucide-react';
+import { Camera, ZoomIn, ZoomOut } from 'lucide-react';
 import { CityPopup } from './components/CityPopup';
 import { CompletionAnimation } from './components/CompletionAnimation';
 import { CollageViewer } from './components/CollageViewer';
@@ -220,12 +220,21 @@ function App() {
               const isCompleted = completedMissions === totalMissions;
               const hasSecretUnlocked = allRegularComplete && secretMissions.length > 0;
 
+              const iconScale = 1 / zoom;
+              const minScale = 0.5;
+              const maxScale = 1;
+              const finalScale = Math.max(minScale, Math.min(maxScale, iconScale));
+
               return (
                 <button
                   key={city.id}
                   onClick={() => setSelectedCity(city)}
                   className={`absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 hover:scale-110 active:scale-95 z-10`}
-                  style={{ left: `${city.x}%`, top: `${city.y}%` }}
+                  style={{
+                    left: `${city.x}%`,
+                    top: `${city.y}%`,
+                    transform: `translate(-50%, -50%) scale(${finalScale})`
+                  }}
                 >
                   <div className="flex flex-col items-center relative">
                     {hasSecretUnlocked && !isCompleted && (
@@ -235,8 +244,8 @@ function App() {
                     )}
                     <div className={`p-3 sm:p-4 rounded-full shadow-xl border-2 border-white ${
                       isCompleted ? 'bg-gradient-to-r from-green-500 to-emerald-500 animate-pulse' : hasSecretUnlocked ? 'bg-gradient-to-r from-yellow-500 to-orange-500' : 'bg-gradient-to-r from-red-500 to-pink-500'
-                    } text-white transition-all`}>
-                      <MapPin size={20} className="sm:w-7 sm:h-7" />
+                    } text-white transition-all flex items-center justify-center`}>
+                      <span className="text-2xl sm:text-3xl">{city.icon}</span>
                     </div>
                     <span className="mt-1 text-xs sm:text-sm font-bold bg-white px-2 sm:px-3 py-1 rounded-full shadow-lg border-2 border-red-200">
                       {city.name}

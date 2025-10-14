@@ -6,6 +6,7 @@ export const cities: City[] = [
     name: 'Tòkio',
     x: 75,
     y: 30,
+    icon: '🗼',
     missions: [
       {
         id: 'tokyo-tower',
@@ -43,6 +44,7 @@ export const cities: City[] = [
     name: 'Hakone',
     x: 78,
     y: 28,
+    icon: '⛩️',
     missions: [
       {
         id: 'hakone-shrine',
@@ -73,6 +75,7 @@ export const cities: City[] = [
     name: 'Takayama',
     x: 65,
     y: 40,
+    icon: '🏘️',
     missions: [
       {
         id: 'takayama-old-town',
@@ -103,6 +106,7 @@ export const cities: City[] = [
     name: 'Kioto',
     x: 55,
     y: 48,
+    icon: '🎋',
     missions: [
       {
         id: 'fushimi-inari',
@@ -140,6 +144,7 @@ export const cities: City[] = [
     name: 'Nara',
     x: 58,
     y: 52,
+    icon: '🦌',
     missions: [
       {
         id: 'deer-park',
@@ -170,6 +175,7 @@ export const cities: City[] = [
     name: 'Osaka',
     x: 52,
     y: 54,
+    icon: '🏯',
     missions: [
       {
         id: 'osaka-castle',
@@ -200,6 +206,7 @@ export const cities: City[] = [
     name: 'Universal Studios',
     x: 51,
     y: 53,
+    icon: '🎢',
     missions: [
       {
         id: 'hogwarts-castle',
