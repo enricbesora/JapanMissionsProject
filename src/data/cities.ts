@@ -30,6 +30,34 @@ export const cities: City[] = [
         completed: false
       },
       {
+        id: 'harajuku-fashion',
+        title: 'Moda a Harajuku',
+        description: 'Captura l\'estil únic i colorit de Takeshita Street a Harajuku. Mostra l\'essència de la moda japonesa més moderna!',
+        location: 'Tòkio',
+        completed: false
+      },
+      {
+        id: 'meiji-shrine',
+        title: 'Serenitat al Santuari Meiji',
+        description: 'Fotografa l\'impressionant portal torii i el camí enmig del bosc que porta al Santuari Meiji.',
+        location: 'Tòkio',
+        completed: false
+      },
+      {
+        id: 'akihabara-electric',
+        title: 'Món Electrònic d\'Akihabara',
+        description: 'Captura els brillants rètols i l\'atmosfera otaku del districte electrònic més famós del món!',
+        location: 'Tòkio',
+        completed: false
+      },
+      {
+        id: 'tokyo-skytree',
+        title: 'Vista des del Tokyo Skytree',
+        description: 'Fes una foto de la ciutat des de l\'observatori del Tokyo Skytree, l\'edifici més alt de Japó!',
+        location: 'Tòkio',
+        completed: false
+      },
+      {
         id: 'tokyo-secret',
         title: '🗼 Misió Secreta: Gat de la Sort',
         description: 'Troba una botiga amb un maneki-neko (gat de la sort) i fes-li una foto mentre et fa un gest d\'invitació!',
@@ -130,6 +158,34 @@ export const cities: City[] = [
         completed: false
       },
       {
+        id: 'kiyomizu-dera',
+        title: 'Temple Kiyomizu-dera',
+        description: 'Captura la plataforma de fusta del temple amb vistes panoràmiques de Kioto. Una meravella arquitectònica!',
+        location: 'Kioto',
+        completed: false
+      },
+      {
+        id: 'ginkakuji',
+        title: 'Pavelló de Plata',
+        description: 'Fotografa el Temple Ginkaku-ji i els seus jardins zen meticulosament dissenyats.',
+        location: 'Kioto',
+        completed: false
+      },
+      {
+        id: 'nishiki-market',
+        title: 'Mercat de Nishiki',
+        description: 'Captura els colors i l\'energia del "cuina de Kioto", amb els seus 400 anys d\'història!',
+        location: 'Kioto',
+        completed: false
+      },
+      {
+        id: 'philosophers-path',
+        title: 'Camí del Filòsof',
+        description: 'Fotografa aquest serè camí al llarg del canal, especialment bonic durant la floració dels cirerers.',
+        location: 'Kioto',
+        completed: false
+      },
+      {
         id: 'kyoto-secret',
         title: '🌸 Misió Secreta: Geisha Misteriosa',
         description: 'Al districte de Gion, captura l\'essència tradicional amb una foto d\'un carrer amb cases de te.',
@@ -188,6 +244,27 @@ export const cities: City[] = [
         id: 'dotonbori',
         title: 'Llums Nocturns de Dotonbori',
         description: 'Captura els vibrants rètols de neó i l\'animada atmosfera del districte de Dotonbori a la nit.',
+        location: 'Osaka',
+        completed: false
+      },
+      {
+        id: 'kuromon-market',
+        title: 'Mercat Kuromon Ichiba',
+        description: 'Fotografa la "cuina d\'Osaka" amb els seus frescos marisc, fruites i menjar de carrer!',
+        location: 'Osaka',
+        completed: false
+      },
+      {
+        id: 'shinsekai',
+        title: 'Districte Retro de Shinsekai',
+        description: 'Captura la Torre Tsutenkaku i l\'atmosfera nostàlgica d\'aquest barri únic d\'Osaka.',
+        location: 'Osaka',
+        completed: false
+      },
+      {
+        id: 'umeda-sky',
+        title: 'Observatori Umeda Sky',
+        description: 'Fes una foto des del pont flotant del Umeda Sky Building amb vistes de 360 graus de la ciutat!',
         location: 'Osaka',
         completed: false
       },

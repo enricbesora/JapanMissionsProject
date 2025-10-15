@@ -128,7 +128,7 @@ function App() {
   const isAllCompleted = progress.completed === progress.total && progress.total > 0;
 
   return (
-    <div className="h-screen flex flex-col overflow-hidden" style={{ backgroundColor: '#1ba1b8' }}>
+    <div className="h-screen flex flex-col overflow-hidden" style={{ backgroundColor: '#1ba1b8', overscrollBehavior: 'none' }}>
       {/* Header */}
       <header className="bg-gradient-to-r from-red-500 via-pink-500 to-orange-400 text-white shadow-lg z-30">
         <div className="px-4 py-3">
@@ -154,7 +154,7 @@ function App() {
       </header>
 
       {/* Main Content - Map Focus */}
-      <main className="flex-1 relative overflow-hidden">
+      <main className="flex-1 relative overflow-hidden" style={{ overscrollBehavior: 'none' }}>
         {/* Zoom Controls */}
         <div className="absolute top-4 right-4 z-20 bg-white rounded-xl shadow-lg p-2 space-y-2">
           <button
@@ -189,6 +189,7 @@ function App() {
         <div
           ref={mapRef}
           className="w-full h-full overflow-hidden touch-pan-x touch-pan-y"
+          style={{ overscrollBehavior: 'none' }}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
