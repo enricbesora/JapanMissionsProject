@@ -75,35 +75,6 @@ function App() {
   const progress = getTotalProgress();
   const allPhotos = getAllPhotos();
 
-const handleSvgClick = (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
-  const svg = e.currentTarget;
-  const pt = svg.createSVGPoint();
-  pt.x = e.clientX;
-  pt.y = e.clientY;
-
-  const ctm = svg.getScreenCTM();
-  if (!ctm) return;
-
-  const svgP = pt.matrixTransform(ctm.inverse());
-  const x = Math.round(svgP.x);
-  const y = Math.round(svgP.y);
-
-  console.log(`SVG coords -> x: ${x}, y: ${y}`);
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(`x: ${x},\n    y: ${y}`).catch(() => {});
-  }
-
-  // marcador visual temporal
-  const ns = 'http://www.w3.org/2000/svg';
-  const c = document.createElementNS(ns, 'circle');
-  c.setAttribute('cx', String(x));
-  c.setAttribute('cy', String(y));
-  c.setAttribute('r', '8');
-  c.setAttribute('fill', 'rgba(255,0,0,0.9)');
-  c.setAttribute('pointer-events', 'none');
-  svg.appendChild(c);
-  setTimeout(() => c.remove(), 1500);
-};
 
   return (
     <div className="h-screen flex flex-col overflow-hidden" style={{ backgroundColor: '#1ba1b8' }}>
@@ -171,7 +142,6 @@ const handleSvgClick = (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
               transform: `translate(${position.x}px, ${position.y}px) scale(${zoom})`,
               transition: isDragging ? 'none' : 'transform 0.2s ease-out'
             }}
-            onClick={handleSvgClick}
           >
             {/* Imagen base del mapa */}
             <image

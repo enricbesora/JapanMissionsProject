@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Camera, Upload, X } from 'lucide-react';
+import { uploadPhoto } from '../lib/supabase';
 
 interface PhotoUploadProps {
   photo?: string;
@@ -35,15 +36,18 @@ export const PhotoUpload: React.FC<PhotoUploadProps> = ({
     }
   };
 
-  const processFile = (file: File) => {
+  const processFile = async (file: File) => {
     setIsLoading(true);
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const result = e.target?.result as string;
-      onPhotoUpload(result);
-      setIsLoading(false);
-    };
-    reader.readAsDataURL(file);
+
+    const photoUrl = await uploadPhoto(file);
+
+    if (photoUrl) {
+      onPhotoUpload(photoUrl);
+    } else {
+      alert('Error al pujar la foto. Torna-ho a provar.');
+    }
+
+    setIsLoading(false);
   };
 
   if (photo) {
