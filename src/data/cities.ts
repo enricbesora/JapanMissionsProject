@@ -4,8 +4,8 @@ export const cities: City[] = [
   {
     id: 'tokyo',
     name: 'Tòkio',
-    x: 75,
-    y: 30,
+    x: 697,
+    y: 825,
     icon: '🗼',
     missions: [
       {
@@ -70,8 +70,8 @@ export const cities: City[] = [
   {
     id: 'hakone',
     name: 'Hakone',
-    x: 78,
-    y: 28,
+    x: 641, 
+    y: 842,
     icon: '⛩️',
     missions: [
       {
@@ -101,8 +101,8 @@ export const cities: City[] = [
   {
     id: 'takayama',
     name: 'Takayama',
-    x: 65,
-    y: 40,
+    x: 512, 
+    y: 734,
     icon: '🏘️',
     missions: [
       {
@@ -132,8 +132,8 @@ export const cities: City[] = [
   {
     id: 'kyoto',
     name: 'Kioto',
-    x: 55,
-    y: 48,
+    x: 480, 
+    y: 816,
     icon: '🎋',
     missions: [
       {
@@ -198,8 +198,8 @@ export const cities: City[] = [
   {
     id: 'nara',
     name: 'Nara',
-    x: 58,
-    y: 52,
+    x: 477, 
+    y: 846,
     icon: '🦌',
     missions: [
       {
@@ -229,8 +229,8 @@ export const cities: City[] = [
   {
     id: 'osaka',
     name: 'Osaka',
-    x: 52,
-    y: 54,
+    x: 452,
+    y: 829,
     icon: '🏯',
     missions: [
       {
@@ -281,8 +281,8 @@ export const cities: City[] = [
   {
     id: 'universal-studios',
     name: 'Universal Studios',
-    x: 51,
-    y: 53,
+    x: 432, 
+    y: 835,
     icon: '🎢',
     missions: [
       {
