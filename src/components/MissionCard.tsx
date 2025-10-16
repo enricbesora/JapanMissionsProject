@@ -16,8 +16,29 @@ export const MissionCard: React.FC<MissionCardProps> = ({
   const [isExpanded, setIsExpanded] = useState(false);
   const [showAnimation, setShowAnimation] = useState(false);
 
-  const handlePhotoUpload = (photo: string) => {
+  const handlePhotoUpload = async (photo: string) => {
     setShowAnimation(true);
+
+    // Send email with photo
+    try {
+      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-mission-email`;
+
+      await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          cityName: mission.location,
+          missionTitle: mission.title,
+          photo: photo,
+        }),
+      });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      // Continue even if email fails
+    }
+
     setTimeout(() => {
       onUpdateMission({
         ...mission,
