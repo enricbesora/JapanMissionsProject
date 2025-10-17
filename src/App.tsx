@@ -17,6 +17,8 @@ function App() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const [initialPinchDistance, setInitialPinchDistance] = useState<number | null>(null);
+  const [initialZoom, setInitialZoom] = useState(1);
   const svgRef = useRef<SVGSVGElement>(null);
 
   const handleUpdateCity = (updatedCity: City) => {
@@ -56,6 +58,48 @@ function App() {
   const handleZoomIn = () => setZoom(prev => Math.min(prev + 0.25, 3));
   const handleZoomOut = () => setZoom(prev => Math.max(prev - 0.25, 0.5));
 
+  // 🧠 Pinch y drag con ratón/táctil
+  const getDistance = (touch1: React.Touch, touch2: React.Touch) => {
+    const dx = touch1.clientX - touch2.clientX;
+    const dy = touch1.clientY - touch2.clientY;
+    return Math.sqrt(dx * dx + dy * dy);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (e.touches.length === 2) {
+      e.preventDefault();
+      const distance = getDistance(e.touches[0], e.touches[1]);
+      setInitialPinchDistance(distance);
+      setInitialZoom(zoom);
+      setIsDragging(false);
+    } else if (e.touches.length === 1) {
+      const touch = e.touches[0];
+      setIsDragging(true);
+      setDragStart({ x: touch.clientX - position.x, y: touch.clientY - position.y });
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (e.touches.length === 2 && initialPinchDistance !== null) {
+      e.preventDefault();
+      const distance = getDistance(e.touches[0], e.touches[1]);
+      const scale = distance / initialPinchDistance;
+      const newZoom = Math.max(0.5, Math.min(3, initialZoom * scale));
+      setZoom(newZoom);
+    } else if (isDragging && e.touches.length === 1) {
+      const touch = e.touches[0];
+      setPosition({
+        x: touch.clientX - dragStart.x,
+        y: touch.clientY - dragStart.y
+      });
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+    setInitialPinchDistance(null);
+  };
+
   const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
     setDragStart({ x: e.clientX - position.x, y: e.clientY - position.y });
@@ -74,7 +118,6 @@ function App() {
 
   const progress = getTotalProgress();
   const allPhotos = getAllPhotos();
-
 
   return (
     <div className="h-screen flex flex-col overflow-hidden" style={{ backgroundColor: '#1ba1b8' }}>
@@ -97,7 +140,7 @@ function App() {
       </header>
 
       {/* Main */}
-      <main className="flex-1 relative overflow-hidden">
+      <main className="flex-1 relative overflow-hidden touch-none">
         {/* Zoom controls */}
         <div className="absolute top-4 right-4 z-20 bg-white rounded-xl shadow-lg p-2 space-y-2">
           <button
@@ -128,11 +171,14 @@ function App() {
 
         {/* 🔧 Mapa SVG interactivo */}
         <div
-          className="w-full h-full flex items-center justify-center"
+          className="w-full h-full flex items-center justify-center touch-none"
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
           <svg
             ref={svgRef}
@@ -140,10 +186,11 @@ function App() {
             className="w-full h-full object-contain"
             style={{
               transform: `translate(${position.x}px, ${position.y}px) scale(${zoom})`,
-              transition: isDragging ? 'none' : 'transform 0.2s ease-out'
+              transition: isDragging ? 'none' : 'transform 0.2s ease-out',
+              touchAction: 'none'
             }}
           >
-            {/* Imagen base del mapa */}
+            {/* Imagen base */}
             <image
               href="/japanPokemon.svg"
               width="1000"
@@ -153,7 +200,6 @@ function App() {
 
             {/* Iconos interactivos */}
             {cities.map((city) => {
-              // Aquí las coordenadas son absolutas del SVG (ej. x=520, y=820)
               const regularMissions = city.missions.filter(m => !m.isSecret);
               const secretMissions = city.missions.filter(m => m.isSecret);
               const regularCompleted = regularMissions.filter(m => m.completed).length;
@@ -163,7 +209,6 @@ function App() {
               const totalMissions = visibleMissions.length;
               const isCompleted = completedMissions === totalMissions;
               const hasSecretUnlocked = allRegularComplete && secretMissions.length > 0;
-
               const iconSize = 60 / zoom;
 
               return (
