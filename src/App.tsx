@@ -66,8 +66,8 @@ function App() {
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
+    e.preventDefault();
     if (e.touches.length === 2) {
-      e.preventDefault();
       const distance = getDistance(e.touches[0], e.touches[1]);
       setInitialPinchDistance(distance);
       setInitialZoom(zoom);
@@ -80,8 +80,8 @@ function App() {
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
+    e.preventDefault();
     if (e.touches.length === 2 && initialPinchDistance !== null) {
-      e.preventDefault();
       const distance = getDistance(e.touches[0], e.touches[1]);
       const scale = distance / initialPinchDistance;
       const newZoom = Math.max(0.5, Math.min(3, initialZoom * scale));
@@ -120,9 +120,9 @@ function App() {
   const allPhotos = getAllPhotos();
 
   return (
-    <div className="h-screen flex flex-col overflow-hidden" style={{ backgroundColor: '#1ba1b8' }}>
+    <div className="h-screen flex flex-col overflow-hidden touch-none" style={{ backgroundColor: '#1ba1b8', touchAction: 'none' }}>
       {/* Header */}
-      <header className="bg-gradient-to-r from-red-500 via-pink-500 to-orange-400 text-white shadow-lg z-30">
+      <header className="bg-gradient-to-r from-red-500 via-pink-500 to-orange-400 text-white shadow-lg z-30 touch-auto">
         <div className="px-4 py-3 flex justify-between items-center">
           <h1 className="text-xl sm:text-2xl font-bold">🗾 Missió Japó Quest 🎌</h1>
           <div className="text-right">
@@ -140,7 +140,7 @@ function App() {
       </header>
 
       {/* Main */}
-      <main className="flex-1 relative overflow-hidden touch-none">
+      <main className="flex-1 relative overflow-hidden touch-none" style={{ touchAction: 'none' }}>
         {/* Zoom controls */}
         <div className="absolute top-4 right-4 z-20 bg-white rounded-xl shadow-lg p-2 space-y-2">
           <button
