@@ -65,6 +65,13 @@ export const cities: City[] = [
         completed: false
       },
       {
+        id: 'tokyo-martilleador',
+        title: 'Foto del Martilleador 🌆',
+        description: 'Heu de anar a un Pokemon Center (o tenda amb pokemons) i trobar un peluche o figura del Martilleador (Duraludon a google)',
+        location: 'Tòkio',
+        completed: false
+      },
+      {
         id: 'tokyo-secret',
         title: '🐱 Misió Secreta: Maneki-neko enamorat',
         description: 'Trobeu un gat de la sort i feu una foto imitant-ne la postura!',
