@@ -10,57 +10,64 @@ export const cities: City[] = [
     missions: [
       {
         id: 'tokyo-tower',
-        title: 'Aventura a la Tokyo Tower',
-        description: 'Fes una foto amb la icònica Torre de Tòkio de fons. Intenta capturar la torre completa en la teva imatge!',
+        title: 'Petó sota la Tokyo Tower 💋',
+        description: 'Feu-vos una foto donant-vos un petó amb la Torre de Tòkio il·luminada de fons. Romàntic però amb estil!',
         location: 'Tòkio',
         completed: false
       },
       {
         id: 'shibuya-crossing',
-        title: 'Experiència al Shibuya Crossing',
-        description: 'Captura el famós encreuament de Shibuya durant l\'hora punta. Mostra l\'energia bulliciosa d\'aquesta intersecció icònica!',
+        title: 'Sobreviu al Shibuya Crossing 🚦',
+        description: 'Feu un selfie enmig del caos del pas de vianants més famós del món. Bonus si tots dos mireu a càmera!',
         location: 'Tòkio',
         completed: false
       },
       {
         id: 'senso-ji',
-        title: 'Visita al Temple Senso-ji',
-        description: 'Fes una foto respectuosa a l\'entrada del Temple Senso-ji. Inclou l\'arquitectura tradicional en la teva imatge.',
+        title: 'Desig al Temple Senso-ji 🏮',
+        description: 'Feu-vos una foto bufant l’encens o demanant un desig plegats davant del temple.',
         location: 'Tòkio',
         completed: false
       },
       {
         id: 'harajuku-fashion',
-        title: 'Moda a Harajuku',
-        description: 'Captura l\'estil únic i colorit de Takeshita Street a Harajuku. Mostra l\'essència de la moda japonesa més moderna!',
+        title: 'Parella fashion a Harajuku 👘',
+        description: 'Busqueu un racó colorit i feu una foto divertida amb alguna peça o accessori extravagant. Poseu com models!',
         location: 'Tòkio',
         completed: false
       },
       {
         id: 'meiji-shrine',
-        title: 'Serenitat al Santuari Meiji',
-        description: 'Fotografa l\'impressionant portal torii i el camí enmig del bosc que porta al Santuari Meiji.',
+        title: 'Promesa al Santuari Meiji 💞',
+        description: 'Escriviu un petit desig o promesa d’amor al santuari i feu-li una foto.',
         location: 'Tòkio',
         completed: false
       },
       {
         id: 'akihabara-electric',
-        title: 'Món Electrònic d\'Akihabara',
-        description: 'Captura els brillants rètols i l\'atmosfera otaku del districte electrònic més famós del món!',
+        title: 'Otaku Challenge a Akihabara 🎮',
+        description: 'Trobeu un maid café i que el JA(o els dos millor) feu una foto amb una maid.',
+        location: 'Tòkio',
+        completed: false
+      },
+      {
+        id: 'akihabara-gacha',
+        title: 'Buscant les boles de drac 🎮',
+        description: 'Trobeu el gacha mes raro que hi hagi i compreu-ne un (feu una foto)',
         location: 'Tòkio',
         completed: false
       },
       {
         id: 'tokyo-skytree',
-        title: 'Vista des del Tokyo Skytree',
-        description: 'Fes una foto de la ciutat des de l\'observatori del Tokyo Skytree, l\'edifici més alt de Japó!',
+        title: 'Vista des del cel 🌆',
+        description: 'Feu una foto de vosaltres amb Tòkio als peus des del mirador del Tokyo Skytree.',
         location: 'Tòkio',
         completed: false
       },
       {
         id: 'tokyo-secret',
-        title: '🗼 Misió Secreta: Gat de la Sort',
-        description: 'Troba una botiga amb un maneki-neko (gat de la sort) i fes-li una foto mentre et fa un gest d\'invitació!',
+        title: '🐱 Misió Secreta: Maneki-neko enamorat',
+        description: 'Trobeu un gat de la sort i feu una foto imitant-ne la postura!',
         location: 'Tòkio',
         completed: false,
         isSecret: true
@@ -70,28 +77,28 @@ export const cities: City[] = [
   {
     id: 'hakone',
     name: 'Hakone',
-    x: 641, 
+    x: 641,
     y: 842,
     icon: '⛩️',
     missions: [
       {
         id: 'hakone-shrine',
-        title: 'Santuari de Hakone',
-        description: 'Fotografa la icònica porta torii vermella al llac Ashi amb el Mont Fuji de fons si tens sort!',
+        title: 'Postcard al llac Ashi 📸',
+        description: 'Feu-vos una foto davant del torii vermell flotant, amb el Mont Fuji (si surt) i la millor cara d’amor possible.',
         location: 'Hakone',
         completed: false
       },
       {
         id: 'owakudani',
-        title: 'Vall d\'Owakudani',
-        description: 'Captura els vapors sulfurosos d\'aquesta vall volcànica activa. No t\'oblidis dels ous negres!',
+        title: 'Fum volcànic i ous màgics 🥚',
+        description: 'Feu una foto divertida amb els vapors sulfurosos al fons.',
         location: 'Hakone',
         completed: false
       },
       {
         id: 'hakone-secret',
-        title: '🥚 Misió Secreta: Ou Negre de Llarga Vida',
-        description: 'Compra i fotografa un ou negre (kuro-tamago) cuit a les aigües volcàniques. Es diu que t\'allargarà la vida 7 anys!',
+        title: '💨 Misió Secreta: L’ou etern',
+        description: 'Tasteu un kuro-tamago i feu una foto de qui faci la millor cara de “quina sort!” 😆',
         location: 'Hakone',
         completed: false,
         isSecret: true
@@ -101,28 +108,28 @@ export const cities: City[] = [
   {
     id: 'takayama',
     name: 'Takayama',
-    x: 512, 
+    x: 512,
     y: 734,
     icon: '🏘️',
     missions: [
       {
         id: 'takayama-old-town',
-        title: 'Barri Antic de Takayama',
-        description: 'Fotografa els carrers tradicionals de l\'època Edo amb les cases de fusta de comerciants preservades perfectament.',
+        title: 'Passeig a l’antic Japó ⛩️',
+        description: 'Feu una foto caminant pels carrers tradicionals de Takayama, com si fossiu protagonistes d’una pel·lícula antiga.',
         location: 'Takayama',
         completed: false
       },
       {
         id: 'morning-market',
-        title: 'Mercat Matinal de Miyagawa',
-        description: 'Captura l\'atmosfera del mercat matinal amb els venedors locals i els seus products frescos.',
+        title: 'Mercat dels sentits 🍡',
+        description: 'Proveu alguna menja local i feu una foto d’un dels dos donant una mossegada exagerada!',
         location: 'Takayama',
         completed: false
       },
       {
         id: 'takayama-secret',
-        title: '🍶 Misió Secreta: Sake Artesanal',
-        description: 'Visita una destil·leria de sake tradicional i fes una foto dels barrilets de fusta de cedre!',
+        title: '🍶 Misió Secreta: Brindis amb sake',
+        description: 'Busqueu una destil·leria tradicional i feu una foto brindant amb gots de sake com bons borrachos.',
         location: 'Takayama',
         completed: false,
         isSecret: true
@@ -132,63 +139,63 @@ export const cities: City[] = [
   {
     id: 'kyoto',
     name: 'Kioto',
-    x: 480, 
+    x: 480,
     y: 816,
     icon: '🎋',
     missions: [
       {
         id: 'fushimi-inari',
-        title: 'Fushimi Inari Taisha',
-        description: 'Fotografa els milers de torii vermells que formen túnels màgics a la muntanya.',
+        title: 'Camí infinit de torii vermells 🔴',
+        description: 'Feu una foto caminant entre els torii, agafats de la mà o fent una mini-cursa romàntica!',
         location: 'Kioto',
         completed: false
       },
       {
         id: 'kinkakuji',
-        title: 'Pavelló Daurat',
-        description: 'Captura el resplandent Temple Kinkaku-ji reflectit en l\'aigua del llac que l\'envolta.',
+        title: 'Reflex d’or ✨',
+        description: 'Feu una foto amb el Pavelló Daurat reflectit i un somriure digne de postal de lluna de mel.',
         location: 'Kioto',
         completed: false
       },
       {
         id: 'arashiyama-bamboo',
-        title: 'Bosc de Bambú d\'Arashiyama',
-        description: 'Fotografa els alts bambus que creen un passadís verd i tranquil. Intenta capturar la llum filtrant-se!',
+        title: 'Bosc encantat de bambú 🎍',
+        description: 'Foto entre els bambús, d’esquena o abraçats. Imagineu que sou pandas.',
         location: 'Kioto',
         completed: false
       },
       {
         id: 'kiyomizu-dera',
-        title: 'Temple Kiyomizu-dera',
-        description: 'Captura la plataforma de fusta del temple amb vistes panoràmiques de Kioto. Una meravella arquitectònica!',
+        title: 'Amor amb vistes 🏞️',
+        description: 'Feu una foto amb el temple al fons i feu veure que declareu el vostre amor com si fos una peli romàntica.',
         location: 'Kioto',
         completed: false
       },
       {
         id: 'ginkakuji',
-        title: 'Pavelló de Plata',
-        description: 'Fotografa el Temple Ginkaku-ji i els seus jardins zen meticulosament dissenyats.',
+        title: 'Jardí Zen Challenge 🪷',
+        description: 'Feu una foto intentant meditar o fer postura zen al costat del jardí de sorra.',
         location: 'Kioto',
         completed: false
       },
       {
         id: 'nishiki-market',
-        title: 'Mercat de Nishiki',
-        description: 'Captura els colors i l\'energia del "cuina de Kioto", amb els seus 400 anys d\'història!',
+        title: 'Caça del snack perfecte 🍢',
+        description: 'Busqueu una menja curiosa i feu una foto mentres es menja (millor si es picant jeje).',
         location: 'Kioto',
         completed: false
       },
       {
         id: 'philosophers-path',
-        title: 'Camí del Filòsof',
-        description: 'Fotografa aquest serè camí al llarg del canal, especialment bonic durant la floració dels cirerers.',
+        title: 'Passeig filosòfic 💭',
+        description: 'Feu-vos una foto caminant junts pel camí del Filòsof com si parléssiu de la vida, l’amor i el sushi.',
         location: 'Kioto',
         completed: false
       },
       {
         id: 'kyoto-secret',
-        title: '🌸 Misió Secreta: Geisha Misteriosa',
-        description: 'Al districte de Gion, captura l\'essència tradicional amb una foto d\'un carrer amb cases de te.',
+        title: '🌸 Misió Secreta: Geisha per un dia',
+        description: 'Vestiu-vos de kimono i feu una foto ben elegant.',
         location: 'Kioto',
         completed: false,
         isSecret: true
@@ -198,28 +205,28 @@ export const cities: City[] = [
   {
     id: 'nara',
     name: 'Nara',
-    x: 477, 
+    x: 477,
     y: 846,
     icon: '🦌',
     missions: [
       {
         id: 'deer-park',
-        title: 'Trobada al Parc dels Cérvols',
-        description: 'Fes una foto amb els simpàtics cérvols del Parc de Nara. Assegura\'t de mantenir una distància respectuosa!',
+        title: 'Amics amb banyes 🦌',
+        description: 'Feu una foto alimentant o saludant un cérvol (si es deixa!). Bonus si tots tres mireu a càmera.',
         location: 'Nara',
         completed: false
       },
       {
         id: 'todai-ji',
-        title: 'Gran Buda del Temple Todai-ji',
-        description: 'Captura la magnífica estàtua del Gran Buda al Temple Todai-ji. Mostra l\'impressionant escala d\'aquesta meravella antiga.',
+        title: 'El Gran Buda i els petits vosaltres 🪷',
+        description: 'Feu una foto amb la immensa estàtua al fons. Intentau fer cara de pau interior.',
         location: 'Nara',
         completed: false
       },
       {
         id: 'nara-secret',
-        title: '🦌 Misió Secreta: Biscotet Shika',
-        description: 'Aconsegueix una foto d\'un cérvol menjant un shika senbei (galeta especial per cérvols)!',
+        title: '🍘 Misió Secreta: Snack compartit',
+        description: 'Feu una foto oferint una galeta a un cérvol com si li féssiu un brindis d’amor! 😄',
         location: 'Nara',
         completed: false,
         isSecret: true
@@ -235,43 +242,43 @@ export const cities: City[] = [
     missions: [
       {
         id: 'osaka-castle',
-        title: 'Glòria del Castell d\'Osaka',
-        description: 'Fes una foto majestúosa del Castell d\'Osaka. Intenta capturar-lo durant l\'hora daurada per obtenir la millor il·luminació!',
+        title: 'Castell reial 👑',
+        description: 'Feu una foto davant del castell fent veure que sou l’emperador i l’emperadriu d’Osaka!',
         location: 'Osaka',
         completed: false
       },
       {
         id: 'dotonbori',
-        title: 'Llums Nocturns de Dotonbori',
-        description: 'Captura els vibrants rètols de neó i l\'animada atmosfera del districte de Dotonbori a la nit.',
+        title: 'Llums i rialles 💡',
+        description: 'Feu un selfie amb els neons de Dotonbori de fons. Bonus si imiteu la famosa postura del cartell Glico!',
         location: 'Osaka',
         completed: false
       },
       {
         id: 'kuromon-market',
-        title: 'Mercat Kuromon Ichiba',
-        description: 'Fotografa la "cuina d\'Osaka" amb els seus frescos marisc, fruites i menjar de carrer!',
+        title: 'Menjar com a locals 🍤',
+        description: 'Feu-vos una foto menjant alguna cosa de carrer amb cara de “això és molt locu!”.',
         location: 'Osaka',
         completed: false
       },
       {
         id: 'shinsekai',
-        title: 'Districte Retro de Shinsekai',
-        description: 'Captura la Torre Tsutenkaku i l\'atmosfera nostàlgica d\'aquest barri únic d\'Osaka.',
+        title: 'Retro Love 💕',
+        description: 'Feu una foto tipus vintage amb la Torre Tsutenkaku de fons. Somriu com si fos 1960(a saber que significa).',
         location: 'Osaka',
         completed: false
       },
       {
         id: 'umeda-sky',
-        title: 'Observatori Umeda Sky',
-        description: 'Fes una foto des del pont flotant del Umeda Sky Building amb vistes de 360 graus de la ciutat!',
+        title: 'Cel d’Osaka 🌇',
+        description: 'Feu una foto amb vistes des de l’Umeda Sky, de la mà o amb un brindis improvisat!',
         location: 'Osaka',
         completed: false
       },
       {
         id: 'osaka-secret',
-        title: '🐙 Misió Secreta: Takoyaki Perfecte',
-        description: 'Troba un carret de takoyaki i fes una foto del moment en què li donen la volta a les boles!',
+        title: '🐙 Misió Secreta: Takoyaki Battle',
+        description: 'Feu una foto amb la Julia menjant un takoyaki, que se que li encanten!',
         location: 'Osaka',
         completed: false,
         isSecret: true
@@ -281,35 +288,35 @@ export const cities: City[] = [
   {
     id: 'universal-studios',
     name: 'Universal Studios',
-    x: 432, 
+    x: 432,
     y: 835,
     icon: '🎢',
     missions: [
       {
         id: 'hogwarts-castle',
-        title: 'Castell de Hogwarts',
-        description: 'Fotografa l\'impressionant Castell de Hogwarts a The Wizarding World of Harry Potter amb tot el seu detall màgic!',
+        title: 'Hechizo d’amor a Hogwarts 🪄',
+        description: 'Feu una foto amb vareta en mà llançant-vos un encanteri d’amor davant del castell!',
         location: 'Universal Studios',
         completed: false
       },
       {
         id: 'mario-world',
-        title: 'Super Nintendo World',
-        description: 'Captura l\'acolorit món de Super Mario amb el Castell de Peach i els blocs característics del joc!',
+        title: 'Super Parella Bros 🍄',
+        description: 'Feu una foto saltant o fent veure que acabeu de guanyar una partida a Super Mario!',
         location: 'Universal Studios',
         completed: false
       },
       {
         id: 'minion-park',
-        title: 'Parc dels Minions',
-        description: 'Fes una foto divertida amb les figures gegants dels Minions i l\'atmosfera festiva de la zona!',
+        title: 'Somriu com un Minion 😂',
+        description: 'Feu una foto divertida imitant la cara o la postura d’un Minion. Bonus si trobeu un de groc gegant.',
         location: 'Universal Studios',
         completed: false
       },
       {
         id: 'universal-secret',
-        title: '⭐ Misió Secreta: Cervesa de Mantega',
-        description: 'Compra i fotografa una cervesa de mantega (Butterbeer) al món de Harry Potter. Deliciosa!',
+        title: '🍺 Misió Secreta: Brindis màgic',
+        description: 'Brindeu amb una cervesa de mantega i feu una foto “a la salut de l’amor etern!”',
         location: 'Universal Studios',
         completed: false,
         isSecret: true
