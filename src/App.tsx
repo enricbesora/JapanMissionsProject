@@ -192,7 +192,7 @@ function App() {
           >
             {/* Imagen base */}
             <image
-              href="/japanPokemon.svg"
+              href="/PokemonMapFinal.svg"
               width="1000"
               height="1400"
               preserveAspectRatio="xMidYMid meet"
