@@ -192,7 +192,7 @@ function App() {
           >
             {/* Imagen base */}
             <image
-              href="/PokemonMapFinal.svg"
+              href="/PokemonMapPNG.png"
               width="1000"
               height="1400"
               preserveAspectRatio="xMidYMid meet"
